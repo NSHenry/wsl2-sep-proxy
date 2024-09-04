@@ -5,7 +5,7 @@ For example you can take advantage when you are using Symantec Endpoint Protecti
 
 Pull and run the Docker Image
 ```
-docker run -d --name wsl2-sep-proxy -p 9999:80 hainet50b/wsl2-sep-proxy
+docker run -d --name wsl2-sep-proxy -p 9999:80 nshenry/wsl2-sep-proxy
 ```
 
 Alter `/etc/environment` in order to make the proxy system-wide:
@@ -27,9 +27,9 @@ echo "export https_proxy=${proxy_server}" >> ~/.bashrc
 
 If you use `apt`, add a proxy configuration with the following:
 ```
-touch /etc/apt/apt.conf.d/proxy.conf
-echo "Acquire::http:Proxy \"${http_proxy}\";" >> /etc/apt/apt.conf.d/proxy.conf
-echo "Acquire::https:Proxy \"${https_proxy}\";" >> /etc/apt/apt.conf.d/proxy.conf
+sudo touch /etc/apt/apt.conf.d/proxy.conf
+echo "Acquire::http:Proxy \"${http_proxy}\";" | sudo tee -a /etc/apt/apt.conf.d/proxy.conf
+echo "Acquire::https:Proxy \"${https_proxy}\";" | sudo tee -a /etc/apt/apt.conf.d/proxy.conf
 ```
 
 If you use `yum`, add a proxy configuration with the following:
