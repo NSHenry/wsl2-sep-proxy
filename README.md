@@ -37,3 +37,9 @@ If you use `yum`, add a proxy configuration with the following:
 touch /etc/yum.conf
 echo "proxy=${http_proxy}" >> /etc/yum.conf
 ```
+
+Snap Proxy
+```
+sudo snap set system proxy.http="${http_proxy}"
+sudo snap set system proxy.https="${http_proxy}"
+```
